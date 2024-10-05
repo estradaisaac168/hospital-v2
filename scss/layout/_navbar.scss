@@ -4,65 +4,81 @@
 
 // NAVBAR
 .navbar {
+
+    background-color: v.$accent-color;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+
+    @include m.breakpoint-up(lg) {
+        padding: 0;
+    }
+
+    //BRAND
+    .navbar-brand {
+        padding: 0 0.7rem;
+        font-size: 1.5rem;
+        font-weight: 700;
+
+        @include m.breakpoint-up(lg) {
+            padding: 0 0.8rem;
+        }
+    }
+
+    // ICON MENU NAVBAR
+    .navbar-toggler {
+        padding: 0 0.6rem;
+        box-shadow: none !important;
+        border: none;
+    }
+
+    // COLOR LINKS
     .navbar-nav {
-        .nav-link {
-            color: #000000;
-            font-size: 1.1em;
 
-            &:hover {
-                color: #808080;
+        .nav-item {
+
+            .nav-link {
+                color: v.$white;
+                padding: 0.8rem;
+                font-size: 1.2em;
+                transition: all .6s;
+
+                @include m.breakpoint-up(lg){
+
+                    padding: 1em 0.7em;
+
+                    &:hover {
+                        background-color: v.$primary-color;
+                        color: v.$white;
+                    }
+                }
+
             }
+
         }
-    }
-}
 
-.dropdown {
-    .dropdown-menu {
-        display: none;
-    }
-
-    &:hover {
+        //DROPDOWN
         .dropdown-menu {
-            display: block;
-            margin-top: 0;
-        }
+            animation: .5s slideup;
 
-        .dropdown-toggle::after {
-            border-bottom: 0.3em solid;
-            border-top: 0;
-        }
-    }
+            &.show{
+                margin: .2rem .8rem;
 
-    &.show {
-        .dropdown-toggle::after {
-            border-top: 0;
-            border-bottom: 0.3em solid;
-        }
-    }
-}
-
-@media only screen and (min-width: 960px) {
-    .dropdown {
-        &:hover {
-            .dropdown-menu {
-                display: block;
-                margin-top: 0;
+                @include m.breakpoint-up(lg){
+                    margin: .2rem 0;
+                }
             }
 
-            .dropdown-toggle::after {
-                border-bottom: 0.3em solid;
-                border-top: 0;
+            .dropdown-item {
+                color: v.$accent-color;
             }
         }
-    }
-}
 
-@media only screen and (min-width: 991px) {
-    .dropdown-toggle.show::after {
-        border-top: 0;
-        border-bottom: 0.3em solid;
     }
-}
 
+    .button-navbar{
+        padding: 0 0.8em;
+    }
+    
+}
 
 // END NAVBAR
